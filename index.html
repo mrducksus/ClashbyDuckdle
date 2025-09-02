@@ -9,8 +9,8 @@
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    /* Resetting the initial background to the original image */
     background: url('https://images2.alphacoders.com/128/1288876.jpg') no-repeat center center fixed;
-    /* Other backgrounds: https://images8.alphacoders.com/128/1288877.jpg, https://images6.alphacoders.com/112/1124063.jpg, https://assets1.ignimgs.com/thumbs/userUploaded/2021/8/3/clashroyalenewseasoncruiseroyaletrailerblogroll-1628003320946.jpg,https://i0.wp.com/highschool.latimes.com/wp-content/uploads/2021/06/Clash-royale.jpeg?fit=640%2C400&ssl=1, https://images.mobi.gg/wp-content/uploads/2023/01/saison-43-clash-royale-festival-des-glaces.webp, https://scontent-syd2-1.xx.fbcdn.net/v/t39.30808-6/481245623_1165497071614624_119845190421172737_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_ohc=_YF8cDjeOQkQ7kNvwH2KYww&_nc_oc=AdmhPO-4epfuOScVBWIpJ8Cxgruice60oVj-rzOstVGIhZ9jcU3Te1ESiEioUnarUrw&_nc_zt=23&_nc_ht=scontent-syd2-1.xx&_nc_gid=ZYSt4vkksZ3VGQo2hixseQ&oh=00_AfVIm-k14xNRkIGsgSnRs8_Xq4_RKqGNzbDluBC3EGwdRw&oe=68BCD085*/
     background-size: cover;
     color: #fff;
   }
@@ -19,12 +19,12 @@
     position: absolute;
     bottom: 20px;
     left: 20px;
-    width: 20px; 
+    width: 40px; 
     height: auto;
     cursor: pointer;
     border-radius: 10px;
     transition: transform 0.2s ease-in-out;
-}
+  }
   #background-toggle:hover {
     transform: scale(1.1);
   }
@@ -58,7 +58,7 @@
   #feedback { display: flex; flex-direction: column; align-items: center; gap: 15px; }
   .card-result { 
     display: grid; 
-    grid-template-columns: 120px repeat(8, 1fr); /* Changed from repeat(4, 100px) */
+    grid-template-columns: 120px repeat(8, 1fr); 
     gap: 10px; 
     padding: 15px; 
     border-radius: 15px; 
@@ -95,7 +95,7 @@
 </head>
 <body>
 
-<img id="background-toggle" src="https://liquipedia.net/commons/images/thumb/b/b6/Clash_Royale_Arena_PANCAKES.png/454px-Clash_Royale_Arena_PANCAKES.png" alt="Change Background">
+<img id="background-toggle" src="pancakeicon.png" alt="Change Background">
 
 <h1>Infinite Clashdle</h1>
 <div id="game-container">
@@ -1729,6 +1729,7 @@ const cards = [
       }
     
     
+    
   // Add the rest of your cards here...
 ];
 
@@ -1748,7 +1749,8 @@ const guessesDisplay = document.getElementById("guesses");
 // Add this new section for the background toggle
 const backgroundToggle = document.getElementById('background-toggle');
 backgroundToggle.addEventListener('click', function() {
-  document.body.style.background = `url('https://scontent-syd2-1.xx.fbcdn.net/v/t39.30808-6/481245623_1165497071614624_119845190421172737_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_ohc=_YF8cDjeOQkQ7kNvwH2KYww&_nc_oc=AdmhPO-4epfuOScVBWIpJ8Cxgruice60oVj-rzOstVGIhZ9jcU3Te1ESiEioUnarUrw&_nc_zt=23&_nc_ht=scontent-syd2-1.xx&_nc_gid=ZYSt4vkksZ3VGQo2hixseQ&oh=00_AfVIm-k14xNRkIGsgSnRs8_Xq4_RKqGNzbDluBC3EGwdRw&oe=68BCD085') no-repeat center center fixed`;
+  // Updated background URL to local file
+  document.body.style.background = `url('pancakesbg.jpg') no-repeat center center fixed`;
   document.body.style.backgroundSize = 'cover';
 });
 
@@ -1796,7 +1798,7 @@ function createHintBox(heading, value, secretValue) {
   } else {
       let text = value;
       if (value !== secretValue) text = `${value} ${value < secretValue ? '↑' : '↓'}`;
-      div.classList.add(value === secretValue ? 'green' : 'red');
+      div.classList.add(value === secretCard.speed ? 'green' : 'red');
 
       const valDiv = document.createElement('div');
       valDiv.innerText = text;
